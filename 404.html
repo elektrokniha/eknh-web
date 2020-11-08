@@ -1,24 +1,105 @@
-<!doctype html>
-<html><head><script>
-	var redir=[]
-var pn = window.location.pathname
-var n = window.location.search
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var pn = window.location.pathname.substr(1);
 
-if (n.indexOf("?item=")>=0) {
-	n = n.substr(6)
-	pn = "/pnc"+n+".html"
-	document.location.href = pn
-}
-if (n.indexOf("?archive=")>=0) {
-	n = n.substr(9)
-	pn = "/pna"+n+".html"
-	document.location.href = pn
-}
-console.log(pn)
-/*
-if (redir[pn]) {
-	document.location.href = redir[pn]
-} else {
-	document.location.href = "https://blog.maly.cz"
-}*/
-</script>
+      var gitprj = null;
+      var emu = null;
+
+      switch (pn) {
+        case "ledblik":
+          emu = "invertor-flasher";
+          break;
+        case "vedeni":
+          emu = "longdist";
+          break;
+        case "2led":
+          emu = "kap3ex1";
+          break;
+        case "ohm":
+          emu = "par-ser";
+          break;
+        case "dioda":
+          emu = "diodecurve";
+          break;
+        case "had":
+          emu = "halfadd";
+          break;
+        case "fad":
+          emu = "fulladd";
+          break;
+        case "delnap":
+          emu = "voltdivide";
+          break;
+
+        case "595":
+          gitprj = "595";
+          break;
+        case "lm75":
+          gitprj = "lm75";
+          break;
+        case "eep":
+          gitprj = "eeprom";
+          break;
+        case "rtc":
+          gitprj = "rtc";
+          break;
+        case "sdcard":
+          gitprj = "sdcard";
+          break;
+        case "meteo":
+          gitprj = "meteo";
+          break;
+        case "433":
+          gitprj = "433";
+          break;
+        case "rf24":
+          gitprj = "rf24";
+          break;
+        case "1602":
+          gitprj = "1602";
+          break;
+        case "rfdis":
+          gitprj = "rfdis";
+          break;
+        case "ps2":
+          gitprj = "ps2";
+          break;
+        case "calcuino":
+          gitprj = "calcuino";
+          break;
+        case "joydis":
+          gitprj = "joydis";
+          break;
+        case "esp":
+          gitprj = "esp";
+          break;
+        case "sigfox":
+          gitprj = "sigfox";
+          break;
+
+        case "forum": {
+          document.location.href = "https://forum.elektrokniha.cz/";
+        }
+
+        case "edudis": {
+          document.location.href =
+            "https://github.com/arduino-edushield/edushield";
+        }
+      }
+
+      if (gitprj) {
+        document.location.href =
+          "https://github.com/elektrokniha/projekty/tree/master/" + gitprj;
+      } else if (!emu) {
+        document.location.href = "https://elektrokniha.github.io/";
+      } else {
+        document.location.href =
+          "https://elektrokniha.github.io/circuitjs.html?startCircuit=" +
+          $emu +
+          ".txt";
+      }
+    </script>
+  </head>
+</html>

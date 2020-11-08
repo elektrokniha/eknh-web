@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><script>
+	var redir=[]
+var pn = window.location.pathname
+var n = window.location.search
+
+if (n.indexOf("?item=")>=0) {
+	n = n.substr(6)
+	pn = "/pnc"+n+".html"
+	document.location.href = pn
+}
+if (n.indexOf("?archive=")>=0) {
+	n = n.substr(9)
+	pn = "/pna"+n+".html"
+	document.location.href = pn
+}
+console.log(pn)
+/*
+if (redir[pn]) {
+	document.location.href = redir[pn]
+} else {
+	document.location.href = "https://blog.maly.cz"
+}*/
+</script>
